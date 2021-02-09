@@ -1,8 +1,10 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using ngt_editor.DependencyInjection;
 using ngt_editor.ViewModels;
 using ngt_editor.Views;
+using Splat;
 
 namespace ngt_editor
 {
@@ -19,11 +21,13 @@ namespace ngt_editor
             {
                 desktop.MainWindow = new MainWindow
                 {
-                    DataContext = new MainWindowViewModel(),
+                    DataContext = GetRequiredService<MainWindowViewModel>()
                 };
             }
 
             base.OnFrameworkInitializationCompleted();
         }
+
+        private static T GetRequiredService<T>() => Locator.Current.GetRequiredService<T>();
     }
 }

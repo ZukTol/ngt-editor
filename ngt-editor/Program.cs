@@ -1,17 +1,24 @@
 using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.ReactiveUI;
 using System;
+using ngt_editor.DependencyInjection;
+using Splat;
 
 namespace ngt_editor
 {
-    class Program
+    internal class Program
     {
         // Initialization code. Don't use any Avalonia, third-party APIs or any
         // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
         // yet and stuff might break.
-        public static void Main(string[] args) => BuildAvaloniaApp()
-            .StartWithClassicDesktopLifetime(args);
+        public static void Main(string[] args)
+        {
+            RegisterDependencies();
+            //SubscribeToDomainUnhandledEvents();
+
+            BuildAvaloniaApp()
+                .StartWithClassicDesktopLifetime(args);
+        }
 
         // Avalonia configuration, don't remove; also used by visual designer.
         public static AppBuilder BuildAvaloniaApp()
@@ -19,5 +26,17 @@ namespace ngt_editor
                 .UsePlatformDetect()
                 .LogToTrace()
                 .UseReactiveUI();
+
+        private static void RegisterDependencies() =>
+            Bootstrapper.Register(Locator.CurrentMutable, Locator.Current);
+
+        //private static void SubscribeToDomainUnhandledEvents() =>
+        //    AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+        //    {
+        //        var logger = Locator.Current.GetRequiredService<ILogger>();
+        //        var ex = (Exception)args.ExceptionObject;
+
+        //        logger.LogCritical($"Unhandled application error: {ex}");
+        //    };
     }
 }
