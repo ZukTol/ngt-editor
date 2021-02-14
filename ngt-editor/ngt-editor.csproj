@@ -3,18 +3,27 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <RootNamespace>ngt_editor</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <AvaloniaResource Include="Assets\**" />
-    <Folder Include="Services\Impl\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.0" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.0" />
     <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0" />
     <PackageReference Include="Material.Avalonia" Version="1.0.1" />
     <PackageReference Include="Material.Icons.Avalonia" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ngt-editor.Common\ngt-editor.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\NewProjectDialog.axaml.cs">
+      <DependentUpon>NewProjectDialog.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

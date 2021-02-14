@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using ngt_editor.ViewModels;
 using System;
+using ngt_editor.ViewModels.Base;
 
 namespace ngt_editor
 {

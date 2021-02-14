@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
+        xmlns:vm="using:ngt_editor.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ngt_editor.Views.NewProjectDialog" Width="400" Height="300"
+        Title="New project">
+
+  <Design.DataContext>
+    <vm:NewProjectViewModel />
+  </Design.DataContext>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <TextBlock Grid.Row="0" Text="Configure languages" />
+    <TextBlock Grid.Row="1" Text="Add or remove languages and their corresponding translation files:" ></TextBlock>
+    <Grid Grid.Row="2">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto"></RowDefinition>
+      </Grid.RowDefinitions>
+      <dg:DataGrid Grid.Row="0" Items="{Binding LanguageList, Mode=OneTime}"></dg:DataGrid>
+      <DockPanel Grid.Row="1" LastChildFill="False">
+        <Button DockPanel.Dock="Right" Content="Remove" Command="{Binding AddLangDirectoryCommand, Mode=OneTime}" />
+        <Button DockPanel.Dock="Right" Content="Add" />
+      </DockPanel>
+    </Grid>
+  </Grid>
+</Window>
