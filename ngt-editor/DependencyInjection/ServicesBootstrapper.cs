@@ -1,8 +1,9 @@
 ﻿using NgtEditor.Services;
 using NgtEditor.Services.Impl;
+using NgtEditor.Splat.Extension;
 using Splat;
 
-namespace NgtEditor.DependencyInjection
+namespace NgtEditor.Avalonia.DependencyInjection
 {
     internal class ServicesBootstrapper
     {
@@ -10,6 +11,7 @@ namespace NgtEditor.DependencyInjection
         {
             services.RegisterLazySingleton<IMainWindowProviderService>(() => new MainWindowProviderService());
             services.RegisterLazySingleton<IDialogService>(() => new DialogService(resolver.GetRequiredService<IMainWindowProviderService>()));
+            services.RegisterLazySingleton<ISystemDialogService>(() => new SystemDialogService(resolver.GetRequiredService<IMainWindowProviderService>()));
         }
     }
 }

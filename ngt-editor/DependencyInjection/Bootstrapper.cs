@@ -1,4 +1,5 @@
-﻿using Splat;
+﻿using NgtEditor.Avalonia.DependencyInjection;
+using Splat;
 
 namespace NgtEditor.DependencyInjection
 {
@@ -7,6 +8,8 @@ namespace NgtEditor.DependencyInjection
         public static void Register(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
         {
             ServicesBootstrapper.RegisterServices(services, resolver);
+
+            Avalonia.DependencyInjection.ServicesBootstrapper.RegisterServices(services, resolver);
             ViewModelsBootstrapper.RegisterViewModels(services, resolver);
         }
     }

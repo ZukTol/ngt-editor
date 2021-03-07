@@ -9,7 +9,7 @@
         Title="New project">
 
   <Design.DataContext>
-    <vm:NewProjectViewModel />
+    <vm:NewProjectDialogViewModel />
   </Design.DataContext>
 
   <Grid>
@@ -29,8 +29,8 @@
       </Grid.RowDefinitions>
       <dg:DataGrid Grid.Row="0" Items="{Binding LanguageList, Mode=OneTime}"></dg:DataGrid>
       <DockPanel Grid.Row="1" LastChildFill="False">
-        <Button DockPanel.Dock="Right" Content="Remove" Command="{Binding AddLangDirectoryCommand, Mode=OneTime}" />
-        <Button DockPanel.Dock="Right" Content="Add" />
+        <!--<Button DockPanel.Dock="Right" Content="Remove" />-->
+        <Button DockPanel.Dock="Right" Content="Select folder" Command="{Binding AddLangDirectoryCommand, Mode=OneTime}" />
       </DockPanel>
     </Grid>
   </Grid>

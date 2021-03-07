@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Avalonia;
 using NgtEditor.DependencyInjection;
+using NgtEditor.Splat.Extension;
 using NgtEditor.ViewModels.Base;
 using NgtEditor.Views;
 using NgtEditor.Views.Base;

@@ -1,7 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using NgtEditor.DependencyInjection;
+using NgtEditor.Splat.Extension;
 using NgtEditor.ViewModels;
 using NgtEditor.Views;
 using Splat;
