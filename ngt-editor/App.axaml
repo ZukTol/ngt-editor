@@ -1,8 +1,8 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
-             xmlns:local="using:ngt_editor"
-             x:Class="ngt_editor.App">
+             xmlns:local="using:NgtEditor"
+             x:Class="NgtEditor.App">
   <Application.DataTemplates>
     <local:ViewLocator />
   </Application.DataTemplates>

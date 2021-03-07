@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace ngt_editor.Common.Extensions
+namespace NgtEditor.Common.Extensions
 {
     public static class EventArgExtensions
     {

@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace ngt_editor.Views
+namespace NgtEditor.Views
 {
     public class MainWindow : Window
     {

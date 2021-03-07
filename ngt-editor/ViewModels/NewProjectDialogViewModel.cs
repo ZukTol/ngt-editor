@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using ngt_editor.Models;
-using ngt_editor.ViewModels.Base;
+using NgtEditor.Models;
+using NgtEditor.ViewModels.Base;
 using ReactiveUI;
 
-namespace ngt_editor.ViewModels
+namespace NgtEditor.ViewModels
 {
     public class NewProjectDialogViewModel : DialogViewModelBase<NewProjectDialogResult>
     {

@@ -1,6 +1,6 @@
 ﻿using Splat;
 
-namespace ngt_editor.DependencyInjection
+namespace NgtEditor.DependencyInjection
 {
     public class Bootstrapper
     {

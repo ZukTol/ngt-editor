@@ -3,7 +3,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <RootNamespace>ngt_editor</RootNamespace>
+    <RootNamespace>NgtEditor</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -19,7 +19,7 @@
     <PackageReference Include="Material.Icons.Avalonia" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ngt-editor.Common\ngt-editor.Common.csproj" />
+    <ProjectReference Include="..\ngt-editor.Common\NgtEditor.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\NewProjectDialog.axaml.cs">

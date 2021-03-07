@@ -1,8 +1,8 @@
-﻿using ngt_editor.Services;
-using ngt_editor.Services.Impl;
+﻿using NgtEditor.Services;
+using NgtEditor.Services.Impl;
 using Splat;
 
-namespace ngt_editor.DependencyInjection
+namespace NgtEditor.DependencyInjection
 {
     internal class ServicesBootstrapper
     {

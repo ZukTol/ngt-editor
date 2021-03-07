@@ -1,12 +1,12 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using ngt_editor.DependencyInjection;
-using ngt_editor.ViewModels;
-using ngt_editor.Views;
+using NgtEditor.DependencyInjection;
+using NgtEditor.ViewModels;
+using NgtEditor.Views;
 using Splat;
 
-namespace ngt_editor
+namespace NgtEditor
 {
     public class App : Application
     {

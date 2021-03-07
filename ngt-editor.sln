@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ngt-editor", "ngt-editor\ngt-editor.csproj", "{0693E2B7-07F1-4F4E-8369-8BB5DE946271}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NgtEditor", "ngt-editor\NgtEditor.csproj", "{0693E2B7-07F1-4F4E-8369-8BB5DE946271}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ngt-editor.Common", "ngt-editor.Common\ngt-editor.Common.csproj", "{25BA9030-4ABE-432A-9C61-128B7464FCD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NgtEditor.Common", "ngt-editor.Common\NgtEditor.Common.csproj", "{25BA9030-4ABE-432A-9C61-128B7464FCD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

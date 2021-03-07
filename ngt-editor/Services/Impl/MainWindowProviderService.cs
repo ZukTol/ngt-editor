@@ -2,7 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 
-namespace ngt_editor.Services.Impl
+namespace NgtEditor.Services.Impl
 {
     internal class MainWindowProviderService : IMainWindowProviderService
     {

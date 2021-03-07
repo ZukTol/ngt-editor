@@ -1,4 +1,4 @@
-﻿namespace ngt_editor.ViewModels.Base
+﻿namespace NgtEditor.ViewModels.Base
 {
     public class DialogResultBase
     {

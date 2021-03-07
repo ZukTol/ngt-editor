@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using ngt_editor.ViewModels.Base;
+using NgtEditor.ViewModels.Base;
 
-namespace ngt_editor.Services
+namespace NgtEditor.Services
 {
     public interface IDialogService
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Splat;
 
-namespace ngt_editor.DependencyInjection
+namespace NgtEditor.DependencyInjection
 {
     public static class ReadonlyDependencyResolverExtensions
     {

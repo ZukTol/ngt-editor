@@ -1,7 +1,7 @@
 ﻿using System;
-using ngt_editor.Common.Extensions;
+using NgtEditor.Common.Extensions;
 
-namespace ngt_editor.ViewModels.Base
+namespace NgtEditor.ViewModels.Base
 {
     public class DialogViewModelBase<TResult> : ViewModelBase where TResult : DialogResultBase
     {

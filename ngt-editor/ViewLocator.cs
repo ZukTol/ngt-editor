@@ -1,9 +1,9 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using System;
-using ngt_editor.ViewModels.Base;
+using NgtEditor.ViewModels.Base;
 
-namespace ngt_editor
+namespace NgtEditor
 {
     public class ViewLocator : IDataTemplate
     {

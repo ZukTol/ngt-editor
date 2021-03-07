@@ -1,10 +1,10 @@
 using Avalonia;
 using Avalonia.ReactiveUI;
 using System;
-using ngt_editor.DependencyInjection;
+using NgtEditor.DependencyInjection;
 using Splat;
 
-namespace ngt_editor
+namespace NgtEditor
 {
     internal class Program
     {

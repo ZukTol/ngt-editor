@@ -3,13 +3,13 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Avalonia;
-using ngt_editor.DependencyInjection;
-using ngt_editor.ViewModels.Base;
-using ngt_editor.Views;
-using ngt_editor.Views.Base;
+using NgtEditor.DependencyInjection;
+using NgtEditor.ViewModels.Base;
+using NgtEditor.Views;
+using NgtEditor.Views.Base;
 using Splat;
 
-namespace ngt_editor.Services.Impl
+namespace NgtEditor.Services.Impl
 {
     internal class DialogService : IDialogService
     {

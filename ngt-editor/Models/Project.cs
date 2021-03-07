@@ -1,4 +1,4 @@
-﻿namespace ngt_editor.Models
+﻿namespace NgtEditor.Models
 {
     public class Project
     {

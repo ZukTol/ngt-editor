@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ngt_editor.ViewModels.Base
+namespace NgtEditor.ViewModels.Base
 {
     public class DialogResultEventArgs<TResult> : EventArgs
     {

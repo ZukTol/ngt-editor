@@ -1,8 +1,8 @@
-﻿using ngt_editor.Services;
-using ngt_editor.ViewModels;
+﻿using NgtEditor.Services;
+using NgtEditor.ViewModels;
 using Splat;
 
-namespace ngt_editor.DependencyInjection
+namespace NgtEditor.DependencyInjection
 {
     internal class ViewModelsBootstrapper
     {

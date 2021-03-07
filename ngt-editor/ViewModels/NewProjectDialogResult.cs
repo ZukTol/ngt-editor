@@ -1,7 +1,7 @@
-﻿using ngt_editor.Models;
-using ngt_editor.ViewModels.Base;
+﻿using NgtEditor.Models;
+using NgtEditor.ViewModels.Base;
 
-namespace ngt_editor.ViewModels
+namespace NgtEditor.ViewModels
 {
     public class NewProjectDialogResult : DialogResultBase
     {

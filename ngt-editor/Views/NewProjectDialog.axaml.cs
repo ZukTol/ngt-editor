@@ -1,10 +1,10 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using ngt_editor.ViewModels;
-using ngt_editor.Views.Base;
+using NgtEditor.ViewModels;
+using NgtEditor.Views.Base;
 
-namespace ngt_editor.Views
+namespace NgtEditor.Views
 {
     public class NewProjectDialog : DialogWindowBase<NewProjectDialogResult>
     {

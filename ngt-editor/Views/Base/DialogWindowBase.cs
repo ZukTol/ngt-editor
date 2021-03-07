@@ -1,9 +1,9 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Controls;
-using ngt_editor.ViewModels.Base;
+using NgtEditor.ViewModels.Base;
 
-namespace ngt_editor.Views.Base
+namespace NgtEditor.Views.Base
 {
     public class DialogWindowBase<TResult> : Window
         where TResult : DialogResultBase
