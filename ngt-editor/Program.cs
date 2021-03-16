@@ -24,11 +24,12 @@ namespace NgtEditor
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .LogToTrace()
-                .UseReactiveUI();
+                .LogToTrace();
 
-        private static void RegisterDependencies() =>
-            Bootstrapper.Register(Locator.CurrentMutable, Locator.Current);
+        private static void RegisterDependencies()
+        {
+            Bootstrapper.RegisterWithAutofac();
+        }
 
         //private static void SubscribeToDomainUnhandledEvents() =>
         //    AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
