@@ -1,9 +1,7 @@
-﻿using NgtEditor.Models;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NgtEditor.Models;
 
 namespace NgtEditor.Services.Impl
 {
@@ -11,7 +9,15 @@ namespace NgtEditor.Services.Impl
     {
         public IReadOnlyList<LangFile> GetLangListInDirectory(string directoryPath)
         {
-            return new List<LangFile>();
+            if (!Directory.Exists(directoryPath))
+            {
+                throw new DirectoryNotFoundException(directoryPath);
+            }
+
+            var dirInfo = new DirectoryInfo(directoryPath);
+            var jsonFileList = dirInfo.GetFiles($"{Common.Constants.Ctrl.Asterisk}{Constants.FileExt.Json}");
+            var result = jsonFileList.Select(x => new LangFile {Lang = Path.GetFileNameWithoutExtension(x.Name), Path = x.FullName}).ToArray();
+            return result;
         }
     }
 }

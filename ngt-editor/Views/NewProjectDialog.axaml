@@ -25,9 +25,14 @@
     <Grid Grid.Row="2">
       <Grid.RowDefinitions>
         <RowDefinition Height="*" />
-        <RowDefinition Height="Auto"></RowDefinition>
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
-      <dg:DataGrid Grid.Row="0" Items="{Binding LanguageList, Mode=OneTime}"></dg:DataGrid>
+      <dg:DataGrid Grid.Row="0" Items="{Binding LanguageList, Mode=OneTime}" AutoGenerateColumns="True">
+        <!-- <dg:DataGrid.Columns> -->
+        <!--   <dg:DataGridTextColumn Header="Path" ></dg:DataGridTextColumn> -->
+        <!--   <dg:DataGridTextColumn Binding="Lang"></dg:DataGridTextColumn> -->
+        <!-- </dg:DataGrid.Columns> -->
+      </dg:DataGrid>
       <DockPanel Grid.Row="1" LastChildFill="False">
         <!--<Button DockPanel.Dock="Right" Content="Remove" />-->
         <Button DockPanel.Dock="Right" Content="Select folder" Command="{Binding AddLangDirectoryCommand, Mode=OneTime}" />

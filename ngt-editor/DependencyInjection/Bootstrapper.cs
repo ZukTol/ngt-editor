@@ -9,19 +9,17 @@ using System.Reflection;
 
 namespace NgtEditor.DependencyInjection
 {
-    public class Bootstrapper
+    public static class Bootstrapper
     {
         public static void RegisterWithAutofac()
         {
             // Build a new Autofac container.
             var builder = new ContainerBuilder();
             RegisterAssemblies(builder);
-            //container.RegisterType<MainPage>().As<IViewFor<MainViewModel>>();
 
             // Use Autofac for ReactiveUI dependency resolution.
             // After we call the method below, Locator.Current and
             // Locator.CurrentMutable start using Autofac locator.
-            // Creates and sets the Autofac resolver as the Locator
             var autofacResolver = builder.UseAutofacDependencyResolver();
 
             // Register the resolver in Autofac so it can be later resolved
@@ -30,8 +28,7 @@ namespace NgtEditor.DependencyInjection
             // Initialize ReactiveUI components
             autofacResolver.InitializeReactiveUI();
             autofacResolver.InitializeSplat();
-
-            RegisterAvalonia(autofacResolver);
+            autofacResolver.InitializeAvalonia();
 
             //Locator.CurrentMutable.InitializeSplat();
             //Locator.CurrentMutable.InitializeReactiveUI();
@@ -56,11 +53,11 @@ namespace NgtEditor.DependencyInjection
             AssemblyTypeRegHelper.InitAvalonia(builder, Assembly.GetExecutingAssembly());
         }
 
-        private static void RegisterAvalonia(IDependencyResolver resolver)
+        private static void InitializeAvalonia(this IMutableDependencyResolver resolver)
         {
-            RxApp.MainThreadScheduler = AvaloniaScheduler.Instance;
             resolver.RegisterConstant(new AvaloniaActivationForViewFetcher(), typeof(IActivationForViewFetcher));
             resolver.RegisterConstant(new AutoDataTemplateBindingHook(), typeof(IPropertyBindingHook));
+            RxApp.MainThreadScheduler = AvaloniaScheduler.Instance;
         }
     }
 }
