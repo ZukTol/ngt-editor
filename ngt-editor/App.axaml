@@ -1,19 +1,15 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+             xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
              xmlns:local="using:NgtEditor"
              x:Class="NgtEditor.App">
-    <Application.DataTemplates>
-        <local:ViewLocator />
-    </Application.DataTemplates>
+  <Application.DataTemplates>
+    <local:ViewLocator />
+  </Application.DataTemplates>
 
-    <Application.Styles>
-        <FluentTheme Mode="Light" />
-    </Application.Styles>
-    <Application.Resources>
-        <themes:BundledTheme BaseTheme="Light" PrimaryColor="Teal" SecondaryColor="Amber" />
-    </Application.Resources>
-    <!-- <Application.Styles> -->
-    <!--   <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" /> -->
-    <!-- </Application.Styles> -->
+  <Application.Styles>
+    <!--<FluentTheme Mode="Light" />-->
+    <StyleInclude Source="avares://Avalonia.Themes.Fluent/FluentLight.xaml" />
+    <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
+  </Application.Styles>
 </Application>

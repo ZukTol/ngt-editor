@@ -5,7 +5,7 @@
         xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
         xmlns:vm="using:NgtEditor.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="NgtEditor.Views.NewProjectDialog" Width="400" Height="300"
+        x:Class="NgtEditor.Views.NewProjectDialog" Width="600" Height="400"
         Title="New project">
 
   <Design.DataContext>
@@ -27,12 +27,12 @@
         <RowDefinition Height="*" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
-      <dg:DataGrid Grid.Row="0" Items="{Binding LanguageList, Mode=OneTime}" AutoGenerateColumns="True">
-        <!-- <dg:DataGrid.Columns> -->
-        <!--   <dg:DataGridTextColumn Header="Path" ></dg:DataGridTextColumn> -->
-        <!--   <dg:DataGridTextColumn Binding="Lang"></dg:DataGridTextColumn> -->
-        <!-- </dg:DataGrid.Columns> -->
-      </dg:DataGrid>
+      <DataGrid Grid.Row="0" Items="{Binding LanguageList, Mode=OneTime}" Margin="0 10 0 5">
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="Path" Binding="{Binding Path}" />
+          <DataGridTextColumn Header="Lang" Binding="{Binding Lang}" />
+        </DataGrid.Columns>
+      </DataGrid>
       <DockPanel Grid.Row="1" LastChildFill="False">
         <!--<Button DockPanel.Dock="Right" Content="Remove" />-->
         <Button DockPanel.Dock="Right" Content="Select folder" Command="{Binding AddLangDirectoryCommand, Mode=OneTime}" />
