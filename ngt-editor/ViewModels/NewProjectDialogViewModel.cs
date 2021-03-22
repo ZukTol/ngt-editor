@@ -28,6 +28,11 @@ namespace NgtEditor.ViewModels
         private async Task AddLangDirectory()
         {
             var directory = await _systemDialogService.GetDirectoryAsync();
+            if (string.IsNullOrEmpty(directory))
+            {
+                return;
+            }
+
             var langList = _langFileSearchService.GetLangListInDirectory(directory);
 
             LanguageList.Clear();
