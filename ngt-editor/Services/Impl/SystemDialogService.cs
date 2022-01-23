@@ -12,7 +12,7 @@ namespace NgtEditor.Services.Impl
             _mainWindowProvider = mainWindowProvider;
         }
 
-        public async Task<string> GetDirectoryAsync(string? initialDirectory = null)
+        public async Task<string> GetDirectoryAsync(string initialDirectory = null)
         {
             var dialog = new OpenFolderDialog { Directory = initialDirectory };
             var window = _mainWindowProvider.Get();
@@ -20,7 +20,7 @@ namespace NgtEditor.Services.Impl
             return await dialog.ShowAsync(window);
         }
 
-        public async Task<string> GetFileAsync(string? initialFile = null)
+        public async Task<string> GetFileAsync(string initialFile = null)
         {
             var dialog = new SaveFileDialog { InitialFileName = initialFile };
             var window = _mainWindowProvider.Get();

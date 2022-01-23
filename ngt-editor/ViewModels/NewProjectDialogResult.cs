@@ -5,6 +5,6 @@ namespace NgtEditor.ViewModels
 {
     public class NewProjectDialogResult : DialogResultBase
     {
-        public Project? Project { get; set; }
+        public Project Project { get; set; }
     }
 }

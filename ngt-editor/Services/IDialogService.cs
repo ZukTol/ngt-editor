@@ -5,7 +5,7 @@ namespace NgtEditor.Services
 {
     public interface IDialogService
     {
-        Task<TResult?> ShowDialogAsync<TResult>(string viewModelName)
+        Task<TResult> ShowDialogAsync<TResult>(string viewModelName)
             where TResult : DialogResultBase;
     }
 }

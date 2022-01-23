@@ -10,30 +10,28 @@ namespace NgtEditor.ViewModels
 {
     public class NewProjectDialogViewModel : DialogViewModelBase<NewProjectDialogResult>
     {
-        private readonly ISystemDialogService _systemDialogService;
-        private readonly ILangFileSearchService _langFileSearchService;
+        public ISystemDialogService SystemDialogService { get; set; }
+        public ILangFileSearchService LangFileSearchService { get; set; }
 
         public ObservableCollection<LangFile> LanguageList { get; } = new();
 
         public ICommand AddLangDirectoryCommand { get; }
-
-        public NewProjectDialogViewModel(ISystemDialogService systemDialogService, ILangFileSearchService langFileSearchService)
+        
+        
+        public NewProjectDialogViewModel()
         {
-            _langFileSearchService = langFileSearchService;
-            _systemDialogService = systemDialogService;
-
             AddLangDirectoryCommand = ReactiveCommand.CreateFromTask(AddLangDirectory);
         }
 
         private async Task AddLangDirectory()
         {
-            var directory = await _systemDialogService.GetDirectoryAsync();
+            var directory = await SystemDialogService.GetDirectoryAsync();
             if (string.IsNullOrEmpty(directory))
             {
                 return;
             }
 
-            var langList = _langFileSearchService.GetLangListInDirectory(directory);
+            var langList = LangFileSearchService.GetLangListInDirectory(directory);
 
             LanguageList.Clear();
             foreach (var item in langList)

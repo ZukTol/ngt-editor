@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Avalonia;
-using NgtEditor.DependencyInjection;
+using JetBrains.Annotations;
 using NgtEditor.Splat.Extension;
 using NgtEditor.ViewModels.Base;
 using NgtEditor.Views;
@@ -12,9 +12,10 @@ using Splat;
 
 namespace NgtEditor.Services.Impl
 {
+    [UsedImplicitly]
     internal class DialogService : IDialogService
     {
-        private IMainWindowProviderService _mainWindowProviderService;
+        private readonly IMainWindowProviderService _mainWindowProviderService;
 
         public DialogService(IMainWindowProviderService mainWindowProviderService)
         {
@@ -56,7 +57,7 @@ namespace NgtEditor.Services.Impl
             return (DialogViewModelBase<TResult>)GetViewModel(viewModelType);
         }
 
-        private static Type? GetViewModelType(string viewModelName)
+        private static Type GetViewModelType(string viewModelName)
         {
             var viewModelsAssembly = Assembly.GetAssembly(typeof(ViewModelBase));
             if (viewModelsAssembly is null)
@@ -80,7 +81,7 @@ namespace NgtEditor.Services.Impl
             return view;
         }
 
-        private static Type? GetViewType(string viewModelName)
+        private static Type GetViewType(string viewModelName)
         {
             var viewsAssembly = Assembly.GetExecutingAssembly();
             var viewTypes = viewsAssembly.GetTypes();

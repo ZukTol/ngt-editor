@@ -9,22 +9,20 @@ namespace NgtEditor.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private Project? _currentProject;
+        private Project _currentProject;
 
-        private readonly IDialogService _dialogService;
+        public IDialogService DialogService { get; set; }
 
         public ICommand NewProjectCommand { get; }
 
-        public MainWindowViewModel(IDialogService dialogService)
+        public MainWindowViewModel()
         {
-            _dialogService = dialogService;
-
             NewProjectCommand = ReactiveCommand.CreateFromTask(CreateNewProject);
         }
 
         private async Task CreateNewProject()
         {
-            var dialogResult = await _dialogService.ShowDialogAsync<NewProjectDialogResult>(nameof(NewProjectDialogViewModel));
+            var dialogResult = await DialogService.ShowDialogAsync<NewProjectDialogResult>(nameof(NewProjectDialogViewModel));
             if (dialogResult?.Project != null)
             {
                 _currentProject = dialogResult.Project;
