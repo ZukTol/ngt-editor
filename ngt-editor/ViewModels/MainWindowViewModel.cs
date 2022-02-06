@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
+using NgtEditor.Avalonia.ViewModels;
 using NgtEditor.Models;
 using NgtEditor.Services;
 using NgtEditor.ViewModels.Base;

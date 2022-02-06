@@ -20,8 +20,10 @@
       </DataGrid.Columns>
     </DataGrid>
     <DockPanel Grid.Row="1" LastChildFill="False">
+      
       <!--<Button DockPanel.Dock="Right" Content="Remove" />-->
-      <Button DockPanel.Dock="Right" Content="Select folder" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type c:LangFilesSelectorControl}}, Path=AddFilesCommand}" />
+      <Button DockPanel.Dock="Right" Content="Select folder" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type c:LangFilesSelectorControl}}, Path=ScanFolderCommand}" />
+      <Button DockPanel.Dock="Right" Content="Add file" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type c:LangFilesSelectorControl}}, Path=AddFileCommand}" />
     </DockPanel>
   </Grid>
 </UserControl>

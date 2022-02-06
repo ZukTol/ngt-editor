@@ -5,12 +5,13 @@
         xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
         xmlns:c="clr-namespace:NgtEditor.Avalonia.Controls"
         xmlns:vm="using:NgtEditor.ViewModels"
+        xmlns:viewModels="clr-namespace:NgtEditor.Avalonia.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="NgtEditor.Views.NewProjectDialog" Width="600" Height="400"
         Title="New project">
 
   <Design.DataContext>
-    <vm:NewProjectDialogViewModel />
+    <viewModels:NewProjectDialogViewModel />
   </Design.DataContext>
 
   <Grid>
@@ -25,6 +26,8 @@
     <TextBlock Grid.Row="1" Text="Add or remove languages and their corresponding translation files:" ></TextBlock>
 
     <c:LangFilesSelectorControl Grid.Row="2" Items="{Binding LanguageList, Mode=OneTime}"
-                                AddFilesCommand="{Binding AddLangDirectoryCommand, Mode=OneTime}" />
+                                ScanFolderCommand="{Binding AddLangDirectoryCommand, Mode=OneTime}"
+                                AddFileCommand="{Binding AddLangFile, Mode=OneTime}"
+                                />
   </Grid>
 </Window>

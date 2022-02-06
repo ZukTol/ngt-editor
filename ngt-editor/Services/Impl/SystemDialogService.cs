@@ -1,8 +1,11 @@
-﻿using Avalonia.Controls;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Avalonia.Controls;
+using JetBrains.Annotations;
+using NgtEditor.Services;
 
-namespace NgtEditor.Services.Impl
+namespace NgtEditor.Avalonia.Services.Impl
 {
+    [UsedImplicitly]
     internal class SystemDialogService : ISystemDialogService
     {
         private readonly IMainWindowProviderService _mainWindowProvider;
@@ -20,9 +23,9 @@ namespace NgtEditor.Services.Impl
             return await dialog.ShowAsync(window);
         }
 
-        public async Task<string> GetFileAsync(string initialFile = null)
+        public async Task<string[]> GetOpenFileAsync(string initialFile = null)
         {
-            var dialog = new SaveFileDialog { InitialFileName = initialFile };
+            var dialog = new OpenFileDialog { InitialFileName = initialFile };
             var window = _mainWindowProvider.Get();
 
             return await dialog.ShowAsync(window);

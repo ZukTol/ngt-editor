@@ -13,7 +13,8 @@ namespace NgtEditor.Avalonia.Controls
     public class LangFilesSelectorControl : UserControl
     {
         private IEnumerable _items = new AvaloniaList<object>();
-        private ICommand _addFilesCommand = ReactiveCommand.Create(() => { });
+        private ICommand _scanFolderCommand = ReactiveCommand.Create(() => { });
+        private ICommand _addFileCommand = ReactiveCommand.Create(()=>{});
 
         public static readonly DirectProperty<LangFilesSelectorControl, IEnumerable> ItemsProperty =
             AvaloniaProperty.RegisterDirect<LangFilesSelectorControl, IEnumerable>(
@@ -21,11 +22,17 @@ namespace NgtEditor.Avalonia.Controls
                 o => o.Items,
                 (o, v) => o.Items = v);
 
-        public static readonly DirectProperty<LangFilesSelectorControl, ICommand> AddFilesCommandProperty =
+        public static readonly DirectProperty<LangFilesSelectorControl, ICommand> ScanFolderCommandProperty =
             AvaloniaProperty.RegisterDirect<LangFilesSelectorControl, ICommand>(
-                nameof(AddFilesCommand),
-                o => o.AddFilesCommand,
-                (o, v) => o.AddFilesCommand = v);
+                nameof(ScanFolderCommand),
+                o => o.ScanFolderCommand,
+                (o, v) => o.ScanFolderCommand = v);
+        
+        public static readonly DirectProperty<LangFilesSelectorControl, ICommand> AddFileCommandProperty =
+            AvaloniaProperty.RegisterDirect<LangFilesSelectorControl, ICommand>(
+                nameof(AddFileCommand),
+                o => o.AddFileCommand,
+                (o, v) => o.AddFileCommand = v);
         
         
         public LangFilesSelectorControl()
@@ -40,15 +47,22 @@ namespace NgtEditor.Avalonia.Controls
 
         public IEnumerable Items
         {
-            get { return _items; }
-            set { SetAndRaise(ItemsProperty, ref _items, value); }
+            get => _items;
+            set => SetAndRaise(ItemsProperty, ref _items, value);
         }
 
         [CanBeNull]
-        public ICommand AddFilesCommand
+        public ICommand ScanFolderCommand
         {
-            get => _addFilesCommand;
-            set => SetAndRaise(AddFilesCommandProperty, ref _addFilesCommand, value);
+            get => _scanFolderCommand;
+            set => SetAndRaise(ScanFolderCommandProperty, ref _scanFolderCommand, value);
+        }
+        
+        [CanBeNull]
+        public ICommand AddFileCommand
+        {
+            get => _addFileCommand;
+            set => SetAndRaise(AddFileCommandProperty, ref _addFileCommand, value);
         }
     }
 }
