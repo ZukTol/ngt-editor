@@ -1,9 +1,10 @@
 using System.Collections;
-using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Collections;
 using Avalonia.Controls;
+using Avalonia.Data;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using JetBrains.Annotations;
 using ReactiveUI;
@@ -12,16 +13,24 @@ namespace NgtEditor.Avalonia.Controls
 {
     public class LangFilesSelectorControl : UserControl
     {
-        private IEnumerable _items = new AvaloniaList<object>();
+        private IList _items = new AvaloniaList<object>();
+        private object _selectedItem;
         private ICommand _scanFolderCommand = ReactiveCommand.Create(() => { });
-        private ICommand _addFileCommand = ReactiveCommand.Create(()=>{});
+        private ICommand _addFileCommand = ReactiveCommand.Create(() => { });
 
-        public static readonly DirectProperty<LangFilesSelectorControl, IEnumerable> ItemsProperty =
-            AvaloniaProperty.RegisterDirect<LangFilesSelectorControl, IEnumerable>(
+        public static readonly DirectProperty<LangFilesSelectorControl, IList> ItemsProperty =
+            AvaloniaProperty.RegisterDirect<LangFilesSelectorControl, IList>(
                 nameof(Items),
                 o => o.Items,
                 (o, v) => o.Items = v);
 
+        public static readonly DirectProperty<DataGrid, object> SelectedItemProperty =
+            AvaloniaProperty.RegisterDirect<DataGrid, object>(
+                nameof(SelectedItem),
+                o => o.SelectedItem,
+                (o, v) => o.SelectedItem = v,
+                defaultBindingMode: BindingMode.TwoWay);
+        
         public static readonly DirectProperty<LangFilesSelectorControl, ICommand> ScanFolderCommandProperty =
             AvaloniaProperty.RegisterDirect<LangFilesSelectorControl, ICommand>(
                 nameof(ScanFolderCommand),
@@ -45,12 +54,18 @@ namespace NgtEditor.Avalonia.Controls
             AvaloniaXamlLoader.Load(this);
         }
 
-        public IEnumerable Items
+        public IList Items
         {
             get => _items;
             set => SetAndRaise(ItemsProperty, ref _items, value);
         }
-
+        
+        public object SelectedItem
+        {
+            get { return _selectedItem; }
+            set { SetAndRaise(SelectedItemProperty, ref _selectedItem, value); }
+        }
+        
         [CanBeNull]
         public ICommand ScanFolderCommand
         {
@@ -63,6 +78,14 @@ namespace NgtEditor.Avalonia.Controls
         {
             get => _addFileCommand;
             set => SetAndRaise(AddFileCommandProperty, ref _addFileCommand, value);
+        }
+
+        private void RemoveSelected(object sender, RoutedEventArgs e)
+        {
+            if (SelectedItem != null)
+            {
+                Items.Remove(SelectedItem);
+            }
         }
     }
 }
