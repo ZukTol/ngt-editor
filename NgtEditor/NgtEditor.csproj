@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ngt-editor.Common\NgtEditor.Common.csproj" />
+    <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
+    <ProjectReference Include="..\NgtEditor.Common\NgtEditor.Common.csproj" />
   </ItemGroup>
 
 </Project>

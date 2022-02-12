@@ -21,8 +21,8 @@
     <PackageReference Include="Splat.Autofac" Version="10.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ngt-editor.Common\NgtEditor.Common.csproj" />
     <ProjectReference Include="..\NgtEditor.Autofac\NgtEditor.Autofac.csproj" />
+    <ProjectReference Include="..\NgtEditor.Common\NgtEditor.Common.csproj" />
     <ProjectReference Include="..\NgtEditor.Splat\NgtEditor.Splat.csproj" />
     <ProjectReference Include="..\NgtEditor\NgtEditor.csproj" />
   </ItemGroup>

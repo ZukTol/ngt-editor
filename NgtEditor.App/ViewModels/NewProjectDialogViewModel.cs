@@ -21,12 +21,27 @@ namespace NgtEditor.Avalonia.ViewModels
 
         public ICommand AddLangDirectoryCommand { get; }
         public ICommand AddLangFileCommand { get; }
+        public ICommand CreateCommand { get; }
+        public ICommand CancelCommand { get; }
 
 
         public NewProjectDialogViewModel()
         {
             AddLangDirectoryCommand = ReactiveCommand.CreateFromTask(AddLangDirectory);
             AddLangFileCommand = ReactiveCommand.CreateFromTask(AddLangFile);
+            CreateCommand = ReactiveCommand.Create(Create);
+            CancelCommand = ReactiveCommand.Create(Cancel);
+        }
+
+        private void Create()
+        {
+            Close(new NewProjectDialogResult{Project = new Project()});
+        }
+
+        private void Cancel()
+        {
+            LanguageList.Clear();
+            Close(null);
         }
 
         private async Task AddLangDirectory()

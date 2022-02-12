@@ -27,7 +27,11 @@
 
     <c:LangFilesSelectorControl Grid.Row="2" Items="{Binding LanguageList, Mode=OneTime}"
                                 ScanFolderCommand="{Binding AddLangDirectoryCommand, Mode=OneTime}"
-                                AddFileCommand="{Binding AddLangFile, Mode=OneTime}"
+                                AddFileCommand="{Binding AddLangFileCommand, Mode=OneTime}"
                                 />
+    <DockPanel Grid.Row="3" LastChildFill="False">
+      <Button DockPanel.Dock="Right" Content="Cancel"  Command="{Binding CancelCommand, Mode=OneTime}" IsCancel="True"/>
+      <Button DockPanel.Dock="Right" Content="Create" Command="{Binding CreateCommand, Mode=OneTime}" IsDefault="True"/>
+    </DockPanel>
   </Grid>
 </Window>
