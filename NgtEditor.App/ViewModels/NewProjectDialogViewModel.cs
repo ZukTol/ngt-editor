@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reactive;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using NgtEditor.Avalonia.Services;
@@ -30,7 +29,8 @@ namespace NgtEditor.Avalonia.ViewModels
         {
             AddLangDirectoryCommand = ReactiveCommand.CreateFromTask(AddLangDirectory);
             AddLangFileCommand = ReactiveCommand.CreateFromTask(AddLangFile);
-            CreateCommand = ReactiveCommand.Create(Create);
+            CreateCommand = ReactiveCommand.Create(Create, 
+                this.WhenAnyValue(x => x.LanguageList.Count, x => x > 0));
             CancelCommand = ReactiveCommand.Create(Cancel);
         }
 
