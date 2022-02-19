@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reactive;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using NgtEditor.Avalonia.Services;
@@ -35,7 +36,7 @@ namespace NgtEditor.Avalonia.ViewModels
 
         private void Create()
         {
-            Close(new NewProjectDialogResult{Project = new Project()});
+            Close(new NewProjectDialogResult { Project = new Project { LangList = LanguageList.ToArray() } });
         }
 
         private void Cancel()
