@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NgtEditor.Common.Utils;
 using NgtEditor.Models;
 
 namespace NgtEditor.Services.Impl
 {
-    [UsedImplicitly]
     internal class LangFileSearchService : ILangFileSearchService
     {
         public IReadOnlyList<LangFile> GetLangListInDirectory(string directoryPath)

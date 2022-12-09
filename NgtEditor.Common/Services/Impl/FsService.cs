@@ -1,8 +1,5 @@
-﻿using JetBrains.Annotations;
-
-namespace NgtEditor.Common.Services.Impl
-{
-    [UsedImplicitly]
+﻿namespace NgtEditor.Common.Services.Impl
+{   
     internal class FsService : IFsService
     {
         public string ReadTxtFile(string filePath)
